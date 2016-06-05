@@ -1,94 +1,79 @@
 
 package th.sarunyu.the500.dao.photoitem;
 
-import com.google.gson.annotations.Expose;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Image {
+public class Image implements Parcelable {
 
-    @SerializedName("size")
-    @Expose
-    private Integer size;
-    @SerializedName("url")
-    @Expose
-    private String url;
-    @SerializedName("https_url")
-    @Expose
-    private String httpsUrl;
-    @SerializedName("format")
-    @Expose
-    private String format;
+    @SerializedName("size")         private int size;
+    @SerializedName("url")          private String url;
+    @SerializedName("https_url")    private String httpsUrl;
+    @SerializedName("format")       private String format;
 
-    /**
-     * 
-     * @return
-     *     The size
-     */
-    public Integer getSize() {
+    protected Image(Parcel in) {
+        size = in.readInt();
+        url = in.readString();
+        httpsUrl = in.readString();
+        format = in.readString();
+    }
+
+    public static final Creator<Image> CREATOR = new Creator<Image>() {
+        @Override
+        public Image createFromParcel(Parcel in) {
+            return new Image(in);
+        }
+
+        @Override
+        public Image[] newArray(int size) {
+            return new Image[size];
+        }
+    };
+
+    public int getSize() {
         return size;
     }
 
-    /**
-     * 
-     * @param size
-     *     The size
-     */
-    public void setSize(Integer size) {
+    public void setSize(int size) {
         this.size = size;
     }
 
-    /**
-     * 
-     * @return
-     *     The url
-     */
     public String getUrl() {
         return url;
     }
 
-    /**
-     * 
-     * @param url
-     *     The url
-     */
     public void setUrl(String url) {
         this.url = url;
     }
 
-    /**
-     * 
-     * @return
-     *     The httpsUrl
-     */
     public String getHttpsUrl() {
         return httpsUrl;
     }
 
-    /**
-     * 
-     * @param httpsUrl
-     *     The https_url
-     */
     public void setHttpsUrl(String httpsUrl) {
         this.httpsUrl = httpsUrl;
     }
 
-    /**
-     * 
-     * @return
-     *     The format
-     */
     public String getFormat() {
         return format;
     }
 
-    /**
-     * 
-     * @param format
-     *     The format
-     */
     public void setFormat(String format) {
         this.format = format;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(size);
+        dest.writeString(url);
+        dest.writeString(httpsUrl);
+        dest.writeString(format);
+    }
 }

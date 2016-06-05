@@ -3,17 +3,12 @@ package th.sarunyu.the500.view;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import th.sarunyu.the500.R;
 import th.sarunyu.the500.dao.CategoryItemDao;
-import th.sarunyu.the500.util.Contextor;
 
-/**
- * Created by Sarunyu on 5/6/2016.
- */
 public class CategoryListItem extends FrameLayout {
 
     private TextView tvCategoryItemLabel;

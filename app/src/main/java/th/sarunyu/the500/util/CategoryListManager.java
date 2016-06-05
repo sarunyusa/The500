@@ -5,9 +5,6 @@ import java.util.List;
 
 import th.sarunyu.the500.dao.CategoryItemDao;
 
-/**
- * Created by Sarunyu on 4/6/2016.
- */
 public class CategoryListManager {
 
     List<CategoryItemDao> list;

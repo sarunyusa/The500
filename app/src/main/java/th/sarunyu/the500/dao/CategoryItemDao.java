@@ -3,9 +3,6 @@ package th.sarunyu.the500.dao;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Sarunyu on 4/6/2016.
- */
 public class CategoryItemDao implements Parcelable {
 
     private String categoryId;

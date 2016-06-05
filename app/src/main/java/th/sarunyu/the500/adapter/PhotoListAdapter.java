@@ -9,9 +9,6 @@ import th.sarunyu.the500.dao.PhotoItemCollectionDao;
 import th.sarunyu.the500.dao.photoitem.Photo;
 import th.sarunyu.the500.view.PhotoListItem;
 
-/**
- * Created by Sarunyu on 5/6/2016.
- */
 public class PhotoListAdapter extends BaseAdapter {
 
     private PhotoItemCollectionDao dao;

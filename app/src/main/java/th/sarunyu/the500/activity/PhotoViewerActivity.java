@@ -1,7 +1,5 @@
 package th.sarunyu.the500.activity;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +7,12 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import th.sarunyu.the500.R;
+import th.sarunyu.the500.dao.photoitem.Photo;
+import th.sarunyu.the500.fragment.PhotoViewFragment;
 
 public class PhotoViewerActivity extends AppCompatActivity {
+
+    private Photo dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +44,13 @@ public class PhotoViewerActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_view_photo);
+
+        dao = getIntent().getParcelableExtra("dao");
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.contentContainer, PhotoViewFragment.newInstance(dao))
+                    .commit();
+        }
     }
 }

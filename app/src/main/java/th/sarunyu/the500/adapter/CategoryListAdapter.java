@@ -2,19 +2,13 @@ package th.sarunyu.the500.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 
 import java.util.List;
 
-import th.sarunyu.the500.R;
 import th.sarunyu.the500.dao.CategoryItemDao;
 import th.sarunyu.the500.view.CategoryListItem;
 
-/**
- * Created by Sarunyu on 5/6/2016.
- */
 public class CategoryListAdapter extends BaseAdapter {
 
     private List<CategoryItemDao> list;

@@ -13,9 +13,6 @@ import th.sarunyu.the500.adapter.CategoryListAdapter;
 import th.sarunyu.the500.dao.CategoryItemDao;
 import th.sarunyu.the500.util.CategoryListManager;
 
-/**
- * Created by Sarunyu on 4/6/2016.
- */
 public class CategoryFragment extends Fragment {
 
     public interface CategoryFragmentListener {

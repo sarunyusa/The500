@@ -43,6 +43,7 @@ public class PhotoListActivity extends AppCompatActivity
     @Override
     public void onPhotoItemClicked(Photo dao) {
         Intent intent = new Intent(PhotoListActivity.this, PhotoViewerActivity.class);
+        intent.putExtra("dao",dao);
         startActivity(intent);
     }
 }

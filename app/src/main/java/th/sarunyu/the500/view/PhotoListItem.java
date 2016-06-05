@@ -2,8 +2,6 @@ package th.sarunyu.the500.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -14,9 +12,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import th.sarunyu.the500.R;
 
-/**
- * Created by Sarunyu on 5/6/2016.
- */
 public class PhotoListItem extends FrameLayout {
 
     private TextView tvName, tvDescription;
