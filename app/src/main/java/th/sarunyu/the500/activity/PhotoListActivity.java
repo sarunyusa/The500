@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import th.sarunyu.the500.R;
-import th.sarunyu.the500.dao.PhotoItemDao;
+import th.sarunyu.the500.dao.CategoryItemDao;
+import th.sarunyu.the500.dao.photoitem.Photo;
 import th.sarunyu.the500.fragment.PhotoListFragment;
 
 public class PhotoListActivity extends AppCompatActivity
         implements PhotoListFragment.PhotoListFragmentListener{
 
-    Toolbar toolbar;
+    private Toolbar toolbar;
+    private CategoryItemDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +22,13 @@ public class PhotoListActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_photo_list);
 
+        dao = getIntent().getParcelableExtra("dao");
+
         initInstances();
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.contentContainer, PhotoListFragment.newInstance())
+                    .add(R.id.contentContainer, PhotoListFragment.newInstance(dao))
                     .commit();
         }
     }
@@ -32,12 +36,13 @@ public class PhotoListActivity extends AppCompatActivity
 
     private void initInstances(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(dao.getCategoryLabel());
         setSupportActionBar(toolbar);
     }
 
     @Override
-    public void OnPhotoItemClickListener(PhotoItemDao dao) {
-        Intent intent = new Intent(PhotoListActivity.this, ViewPhotoActivity.class);
+    public void onPhotoItemClicked(Photo dao) {
+        Intent intent = new Intent(PhotoListActivity.this, PhotoViewerActivity.class);
         startActivity(intent);
     }
 }

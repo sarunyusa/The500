@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="th.sarunyu.the500">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -17,7 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PhotoListActivity" />
-        <activity android:name=".activity.ViewPhotoActivity"></activity>
+        <activity android:name=".activity.PhotoViewerActivity"></activity>
+
+        <meta-data
+            android:name="th.sarunyu.the500.configuration.GlideConfiguration"
+            android:value="GlideModule" />
     </application>
+
 
 </manifest>

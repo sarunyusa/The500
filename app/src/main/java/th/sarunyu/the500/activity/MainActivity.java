@@ -35,8 +35,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void OnCategoryItemClickListener(CategoryItemDao dao) {
+    public void onCategoryItemClicked(CategoryItemDao dao) {
         Intent intent = new Intent(MainActivity.this, PhotoListActivity.class);
+        intent.putExtra("dao",dao);
         startActivity(intent);
     }
 }

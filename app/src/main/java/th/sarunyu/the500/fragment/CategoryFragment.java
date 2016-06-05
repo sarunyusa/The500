@@ -18,8 +18,8 @@ import th.sarunyu.the500.util.CategoryListManager;
  */
 public class CategoryFragment extends Fragment {
 
-    public interface CategoryFragmentListener{
-        void OnCategoryItemClickListener(CategoryItemDao dao);
+    public interface CategoryFragmentListener {
+        void onCategoryItemClicked(CategoryItemDao dao);
     }
 
 
@@ -47,7 +47,7 @@ public class CategoryFragment extends Fragment {
 
     private void initInstances(View rootView) {
         // Init 'View' instance(s) with rootView.findViewById here
-        lvCategory = (ListView)rootView.findViewById(R.id.lvCategory);
+        lvCategory = (ListView) rootView.findViewById(R.id.lvCategory);
         adapter = new CategoryListAdapter();
         lvCategory.setAdapter(adapter);
         adapter.setDao(CategoryListManager.getInstance().getList());
@@ -89,9 +89,14 @@ public class CategoryFragment extends Fragment {
             = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            CategoryFragmentListener listener =  (CategoryFragmentListener)getActivity();
-            listener.OnCategoryItemClickListener(
-                    CategoryListManager.getInstance().getList().get(position));
+
+            if (position < CategoryListManager.getInstance().getList().size()) {
+
+                CategoryFragmentListener listener = (CategoryFragmentListener) getActivity();
+                listener.onCategoryItemClicked(
+                        CategoryListManager.getInstance().getList().get(position));
+
+            }
         }
     };
 

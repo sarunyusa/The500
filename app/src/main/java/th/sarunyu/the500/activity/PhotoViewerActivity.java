@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import th.sarunyu.the500.R;
 
-public class ViewPhotoActivity extends AppCompatActivity {
+public class PhotoViewerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
